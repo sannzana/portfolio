@@ -3678,3 +3678,356 @@ html {
   flex-direction: column;
 }
 
+/* =========================================================
+   PROGRAMMER / RESEARCHER POLISH
+   Append at the very END of globals.css (overrides above).
+========================================================= */
+
+:root {
+  --mono: ui-monospace, "JetBrains Mono", "SF Mono", Menlo, Consolas, monospace;
+  --accent-strong: #4f7f79;
+  --glow: rgba(102, 143, 138, 0.18);
+}
+
+/* ---------- Equal height cards (Reveal wrapper is the grid child) ---------- */
+
+.skills-grid,
+.ongoing-grid,
+.projects-grid,
+.beyond-grid {
+  align-items: stretch;
+}
+
+.skills-grid > *,
+.ongoing-grid > *,
+.projects-grid > *,
+.beyond-grid > * {
+  display: flex;
+  min-width: 0;
+}
+
+.skill-card,
+.ongoing-card,
+.project-card,
+.beyond-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-content > a {
+  margin-top: auto;
+  padding-top: 13px;
+}
+
+.ongoing-card > p {
+  flex: 1;
+}
+
+.ongoing-status {
+  margin-top: auto;
+  padding-top: 17px;
+}
+
+.skill-card .skill-tags,
+.ongoing-card .skill-tags {
+  margin-top: auto;
+}
+
+/* ---------- Typography accents ---------- */
+
+.eyebrow,
+.hero-pill,
+.availability,
+.placeholder-label,
+.metric-label,
+.project-number,
+.project-category,
+.publication-meta,
+.ongoing-top,
+.ongoing-status,
+.beyond-category,
+.contact-email-label,
+.contact-social-heading,
+.expertise-number,
+.skill-card-top span,
+.beyond-card-top span {
+  font-family: var(--mono);
+}
+
+.eyebrow::before {
+  content: "// ";
+  opacity: 0.55;
+}
+
+.skill-tags span,
+.thesis-tags span {
+  font-family: var(--mono);
+  font-size: 10.5px;
+}
+
+.section-heading h2,
+.about-label h2,
+.contact-copy h2 {
+  letter-spacing: -1.6px;
+}
+
+/* ---------- Navigation ---------- */
+
+.brand {
+  font-family: var(--mono);
+  letter-spacing: -1px;
+}
+
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  letter-spacing: 0.2px;
+}
+
+.nav-contact {
+  box-shadow: 0 6px 18px rgba(23, 43, 70, 0.18);
+}
+
+/* ---------- Hero ---------- */
+
+.hero-section {
+  background:
+    radial-gradient(circle at 85% 10%, rgba(102, 143, 138, 0.28), transparent 45%),
+    radial-gradient(circle at 5% 95%, rgba(156, 195, 185, 0.1), transparent 40%),
+    radial-gradient(rgba(168, 208, 199, 0.14) 1px, transparent 1px),
+    var(--navy);
+  background-size: auto, auto, 26px 26px, auto;
+}
+
+.hero-content h1 span {
+  background: linear-gradient(90deg, #9cc3b9 0%, #d6efe6 60%, #9cc3b9 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.availability-dot {
+  animation: pulse-dot 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 3px rgba(156, 200, 182, 0.18); }
+  50% { box-shadow: 0 0 0 8px rgba(156, 200, 182, 0); }
+}
+
+.hero-description {
+  border-left: 2px solid rgba(156, 195, 185, 0.45);
+  padding-left: 16px;
+}
+
+.hero-pill {
+  background: rgba(255, 255, 255, 0.03);
+  transition: 0.25s ease;
+}
+
+.hero-pill:hover {
+  background: rgba(156, 195, 185, 0.12);
+  color: #fff;
+}
+
+.profile-frame {
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.28),
+    12px 12px 0 -1px rgba(156, 195, 185, 0.22);
+}
+
+.profile-note {
+  font-family: var(--mono);
+}
+
+.button-primary {
+  box-shadow: 0 8px 22px rgba(102, 143, 138, 0.35);
+}
+
+/* ---------- Card hover accent line ---------- */
+
+.skill-card::before,
+.ongoing-card::before,
+.project-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 3px;
+  z-index: 3;
+  background: linear-gradient(90deg, var(--accent), #9cc3b9);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.35s ease;
+}
+
+.skill-card:hover::before,
+.ongoing-card:hover::before,
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.skill-card:hover,
+.ongoing-card:hover,
+.project-card:hover,
+.beyond-card:hover {
+  border-color: #a9c5bc;
+  box-shadow: 0 16px 36px rgba(23, 43, 70, 0.09), 0 0 0 4px var(--glow);
+}
+
+.skill-card-top {
+  margin-bottom: 2px;
+}
+
+.skill-card-top svg {
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-card-top svg {
+  transform: scale(1.12);
+  color: var(--accent-strong);
+}
+
+.skill-tags span:hover {
+  background: var(--accent-light);
+  border-color: var(--accent);
+  color: var(--navy);
+}
+
+/* ---------- Work in progress ---------- */
+
+.live-dot {
+  animation: pulse-live 2.4s ease-in-out infinite;
+}
+
+@keyframes pulse-live {
+  0%, 100% { box-shadow: 0 0 0 3px #e7f0e9; }
+  50% { box-shadow: 0 0 0 7px rgba(121, 169, 145, 0); }
+}
+
+.ongoing-status::before {
+  content: "$ ";
+  opacity: 0.6;
+}
+
+/* ---------- Thesis ---------- */
+
+.thesis-section {
+  background:
+    radial-gradient(circle at 90% 0%, rgba(102, 143, 138, 0.22), transparent 45%),
+    radial-gradient(rgba(168, 208, 199, 0.1) 1px, transparent 1px),
+    var(--navy);
+  background-size: auto, 26px 26px, auto;
+}
+
+.thesis-layout h2 {
+  font-family: var(--mono);
+  letter-spacing: -2.5px;
+}
+
+.thesis-metrics {
+  position: relative;
+  border-left: 3px solid #9cc3b9;
+  background: rgba(36, 58, 85, 0.85);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+}
+
+.metric-label::before {
+  content: "> ";
+  opacity: 0.7;
+}
+
+.metric-row strong {
+  font-family: var(--mono);
+}
+
+.metric-highlight {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 5px;
+  background: rgba(156, 195, 185, 0.14);
+  font-family: var(--mono);
+}
+
+/* ---------- Projects ---------- */
+
+.project-art {
+  background-image: radial-gradient(rgba(23, 43, 70, 0.07) 1px, transparent 1px);
+  background-size: 14px 14px;
+}
+
+.project-blue { background-color: #edf0f5; }
+.project-sage { background-color: #edf2ee; }
+.project-lavender { background-color: #f0f0f4; }
+.project-sand { background-color: #f2f0ea; }
+.project-mint { background-color: #eaf1ef; }
+
+.project-content > a {
+  font-family: var(--mono);
+}
+
+/* ---------- Research / publications ---------- */
+
+.publication-item {
+  position: relative;
+  border-left: 3px solid transparent;
+  transition: background 0.3s ease, border-color 0.3s ease, padding-left 0.3s ease;
+}
+
+.publication-item:hover {
+  border-left-color: var(--accent);
+  padding-left: 24px;
+}
+
+.publication-meta .status {
+  font-family: var(--mono);
+}
+
+.publication-item p {
+  font-family: var(--mono);
+}
+
+/* ---------- Education ---------- */
+
+.education-item {
+  transition: background 0.25s ease;
+}
+
+.education-item:hover {
+  background: #f6f9f7;
+}
+
+.education-item span {
+  font-family: var(--mono);
+}
+
+/* ---------- Contact ---------- */
+
+.contact-panel {
+  border-top: 3px solid var(--accent);
+}
+
+.contact-email-address {
+  font-family: var(--mono);
+}
+
+.contact-social-grid a:hover {
+  border-color: var(--accent);
+  box-shadow: 0 8px 20px rgba(23, 43, 70, 0.07);
+}
+
+/* ---------- Footer ---------- */
+
+.footer-content p {
+  font-family: var(--mono);
+}
