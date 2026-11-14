@@ -34,6 +34,9 @@ import {
    NAVIGATION
 ========================================= */
 
+const assetPath = (path: string) =>
+  `${process.env.NODE_ENV === "production" ? "/portfolio" : ""}${path}`;
+
 const navigation = [
   ["Home", "#home"],
   ["About", "#about"],
@@ -446,7 +449,8 @@ export default function Home() {
 
               <div className="profile-placeholder">
                 <img
-                  src="/images/profile/prof.jpeg"
+                  // src="/images/profile/prof.jpeg"
+                  src={assetPath("/images/profile/prof.jpeg")}
                   alt="Fariha Sanzana"
                   className="profile-photo"
                 />
@@ -916,14 +920,16 @@ export default function Home() {
                 <article className="beyond-card">
                   {item.image && (
                     <a
-                      href={item.image}
+                      // href={item.image}
+                      href={assetPath(item.image)}
                       target="_blank"
                       rel="noreferrer"
                       className="beyond-image-link"
                       aria-label={`Open ${item.title} certificate`}
                     >
                       <img
-                        src={item.image}
+                        // src={item.image}
+                        src={assetPath(item.image)}
                         alt={`${item.title} certificate`}
                         className="beyond-image"
                         loading="lazy"
@@ -935,7 +941,8 @@ export default function Home() {
                     <span>{item.number}</span>
                     {item.image && (
                       <a
-                        href={item.image}
+                        // href={item.image}
+                        href={assetPath(item.image)}
                         target="_blank"
                         rel="noreferrer"
                         className="certificate-link"

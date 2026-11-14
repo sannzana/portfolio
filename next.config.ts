@@ -1,12 +1,21 @@
 import type { NextConfig } from "next";
 
+const isProduction = process.env.NODE_ENV === "production";
+
 const nextConfig: NextConfig = {
-  /* config options here */
-  experimental: {
-    agentFeedback: true,
+  output: "export",
+
+  basePath: isProduction ? "/portfolio" : undefined,
+
+  trailingSlash: true,
+
+  images: {
+    unoptimized: true,
   },
-  cacheComponents: true,
-  partialPrefetching: true,
+
+  cacheComponents: false,
+  partialPrefetching: false,
+
   turbopack: {
     rules: {
       "*.css": {
