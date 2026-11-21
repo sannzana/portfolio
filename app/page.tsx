@@ -814,24 +814,24 @@ export default function Home() {
               </article>
             </Reveal>
 
-            <Reveal delay={0.12}>
-              <article className="publication-item">
+           <Reveal delay={0.12}>
+  <article className="publication-item">
 
-                <div className="publication-meta">
-                  <span>UNDERGRADUATE THESIS</span>
-                  <span className="status">RESEARCH WORK</span>
-                </div>
+    <div className="publication-meta">
+      <span>IEEE ICCIT 2026 · CONFERENCE PAPER</span>
+      <span className="status">ACCEPTED</span>
+    </div>
 
-                <h3>
-                  TriQ-VLM: An Edge–VLM Framework for CCTV Event
-                  Understanding with Adaptive Frame Selection
-                  and Graph-Derived Context
-                </h3>
+    <h3>
+      TriQ-VLM: An Edge-VLM Framework for CCTV Event
+      Understanding with Adaptive Frame Selection
+      and Graph-Derived Context
+    </h3>
 
-                <p>Undergraduate research project</p>
+    <p>Accepted for presentation at IEEE ICCIT 2026.</p>
 
-              </article>
-            </Reveal>
+  </article>
+</Reveal>
 
           </div>
 
